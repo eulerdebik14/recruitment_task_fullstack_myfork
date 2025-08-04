@@ -2,7 +2,9 @@
 
 import React, {Component} from 'react';
 import {Route, Redirect, Switch, Link} from 'react-router-dom';
-import SetupCheck from "./SetupCheck";
+
+import ExchangeRates from "./ExchangeRates";
+import ExchangeRatesHistory from "./ExchangeRatesHistory";
 
 class Home extends Component {
 
@@ -14,15 +16,20 @@ class Home extends Component {
                     <div id="navbarText">
                         <ul className="navbar-nav mr-auto">
                             <li className="nav-item">
-                                <Link className={"nav-link"} to={"/setup-check"}> React Setup Check </Link>
+                                <Link className={"nav-link"} to={"/exchange-rates"}> Exchange rates </Link>
                             </li>
+                            <li className="nav-item">
+                                <Link className={"nav-link"} to={"/history"}> Exchange rates history </Link>
+                            </li>
+                            
 
                         </ul>
                     </div>
                 </nav>
                 <Switch>
-                    <Redirect exact from="/" to="/setup-check" />
-                    <Route path="/setup-check" component={SetupCheck} />
+                    <Redirect exact from="/" to="/exchange-rates" />
+                    <Route path="/exchange-rates" component={ExchangeRates} />
+                    <Route path="/history" component={ExchangeRatesHistory} />
                 </Switch>
             </div>
         )
