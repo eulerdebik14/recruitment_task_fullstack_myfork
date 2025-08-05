@@ -58,7 +58,7 @@ GET /api/rates/history?date=YYYY-MM-DD
 Returns exchange rates for the 14 days prior to the given date.
 
 ## Demo video
-[To be added:](https://youtu.be/jZPSQ_t4YJU)
+https://youtu.be/jZPSQ_t4YJU
 
 ##  Author Notes
 - The app handles the case where no current-day data is available (fallback to earlier days).
