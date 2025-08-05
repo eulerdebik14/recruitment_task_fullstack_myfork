@@ -57,6 +57,10 @@ GET /api/rates/history?date=YYYY-MM-DD
 ```
 Returns exchange rates for the 14 days prior to the given date.
 
+## Screenshot
+<img width="1825" height="895" alt="image" src="https://github.com/user-attachments/assets/321b1add-2b3a-40b1-b410-c2aa361994d9" />
+
+
 ## Demo video
 To be added:
 
