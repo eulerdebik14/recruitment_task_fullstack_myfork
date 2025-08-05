@@ -46,7 +46,7 @@ class ExchangeRatesHistory extends Component {
         const { selectedDate, history, loading, error } = this.state;
 
         return (
-            <div className="container mt-5">
+            <div className="container mt-5 p-4 bg-white rounded shadow">
                 <h2 className="text-center mb-4">History of exchange rates (14 days)</h2>
 
                 <div className="form-group text-center">
@@ -77,26 +77,28 @@ class ExchangeRatesHistory extends Component {
                         {history.map((day, idx) => (
                             <div key={idx} className="mb-4">
                                 <h5 className="text-center">Date: {day.date}</h5>
-                                <table className="table table-bordered">
-                                    <thead>
-                                        <tr>
-                                            <th>Currency</th>
-                                            <th>Average exchange rate</th>
-                                            <th>Buy</th>
-                                            <th>Sell</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        {day.rates.map((rate, i) => (
-                                            <tr key={i}>
-                                                <td>{rate.currency}</td>
-                                                <td>{rate.mid.toFixed(2)}</td>
-                                                <td>{rate.buy !== null ? rate.buy.toFixed(2) : '-'}</td>
-                                                <td>{rate.sell.toFixed(2)}</td>
+                                <div className="table-responsive"> 
+                                    <table className="table table-striped table-bordered table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th>Currency</th>
+                                                <th>Average exchange rate</th>
+                                                <th>Buy</th>
+                                                <th>Sell</th>
                                             </tr>
-                                        ))}
-                                    </tbody>
-                                </table>
+                                        </thead>
+                                        <tbody>
+                                            {day.rates.map((rate, i) => (
+                                                <tr key={i}>
+                                                    <td>{rate.currency}</td>
+                                                    <td>{rate.mid.toFixed(2)}</td>
+                                                    <td>{rate.buy !== null ? rate.buy.toFixed(2) : '-'}</td>
+                                                    <td>{rate.sell.toFixed(2)}</td>
+                                                </tr>
+                                            ))}
+                                        </tbody>
+                                    </table>
+                                </div>    
                             </div>
                         ))}
                     </div>

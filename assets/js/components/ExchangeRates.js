@@ -27,7 +27,7 @@ class ExchangeRates extends Component {
                 });
             })
             .catch(error => {
-                console.error('Ошибка при получении курсов валют:', error);
+                console.error('An error occured while trying to take currencies:', error);
                 this.setState({ loading: false, error: true });
             });
     }
@@ -44,28 +44,31 @@ class ExchangeRates extends Component {
         }
 
         return (
-            <div className="container mt-5">
+            <div className="container mt-5 p-4 bg-white rounded shadow">
                 <h2 className="text-center mb-4">Exchange rates for today</h2>
-                <table className="table table-striped">
-                    <thead>
-                        <tr>
-                            <th>Currnecy</th>
-                            <th>Average exchange rate</th>
-                            <th>Buy</th>
-                            <th>Sell</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {rates.map((rate, idx) => (
-                            <tr key={idx}>
-                                <td>{rate.currency}</td>
-                                <td>{rate.mid}</td>
-                                <td>{rate.buy !== null ? rate.buy.toFixed(2) : '-'}</td>
-                                <td>{rate.sell.toFixed(2)}</td>
+                
+                <div className="table-responsive">
+                    <table className="table table-striped table-bordered table-hover">
+                        <thead>
+                            <tr>
+                                <th>Currnecy</th>
+                                <th>Average exchange rate</th>
+                                <th>Buy</th>
+                                <th>Sell</th>
                             </tr>
-                        ))}
-                    </tbody>
-                </table>
+                        </thead>
+                        <tbody>
+                            {rates.map((rate, idx) => (
+                                <tr key={idx}>
+                                    <td>{rate.currency}</td>
+                                    <td>{rate.mid}</td>
+                                    <td>{rate.buy !== null ? rate.buy.toFixed(2) : '-'}</td>
+                                    <td>{rate.sell.toFixed(2)}</td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
+                    </div>
             </div>
         );
     }

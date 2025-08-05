@@ -3,7 +3,7 @@
 import React, {Component} from 'react';
 import {Route, Redirect, Switch, Link} from 'react-router-dom';
 
-import ExchangeRates from "./ExchangeRates";
+
 import ExchangeRatesHistory from "./ExchangeRatesHistory";
 
 class Home extends Component {
@@ -12,12 +12,9 @@ class Home extends Component {
         return (
             <div>
                 <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-                    <Link className={"navbar-brand"} to={"#"}> Telemedi Zadanko </Link>
+                    <Link className={"navbar-brand fw-bold"} to={"#"}> Telemedi Zadanko </Link>
                     <div id="navbarText">
                         <ul className="navbar-nav mr-auto">
-                            <li className="nav-item">
-                                <Link className={"nav-link"} to={"/exchange-rates"}> Exchange rates </Link>
-                            </li>
                             <li className="nav-item">
                                 <Link className={"nav-link"} to={"/history"}> Exchange rates history </Link>
                             </li>
@@ -27,8 +24,7 @@ class Home extends Component {
                     </div>
                 </nav>
                 <Switch>
-                    <Redirect exact from="/" to="/exchange-rates" />
-                    <Route path="/exchange-rates" component={ExchangeRates} />
+                    <Redirect exact from="/" to="/history" />
                     <Route path="/history" component={ExchangeRatesHistory} />
                 </Switch>
             </div>
